@@ -1,3 +1,12 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap');
+
+:root {
+  --hero-height: 260px;
+  --menu-bar-height: 56px;
+  --side-menu-width: 230px;
+}
+
 /* Убирает стандартные отступы у всех элементов */
 * {
   margin: 0;
@@ -80,4 +89,275 @@ body {
   .main {
     padding: 24px 0;
   }
+}
+
+/* Верхний блок с фоном */
+.hero {
+  /* Нужно для позиционирования фона, текста и аватарки */
+  position: relative;
+
+  /* Высота верхнего фонового блока */
+  height: var(--hero-height);
+
+  /* Позволяет аватарке выходить вниз за границу hero */
+  overflow: visible;
+}
+
+/* Сам фоновый слой с картинкой */
+.hero::before {
+  /* Создаёт отдельный слой */
+  content: "";
+
+  /* Растягивает фон на весь hero */
+  position: absolute;
+  inset: 0;
+
+  /* Фоновая картинка */
+  background-image: url("Pics/NGNF_Background.png");
+
+  /* Картинка заполняет весь блок */
+  background-size: cover;
+
+  /* Центрирует картинку */
+  background-position: center;
+
+  /* Не повторяет картинку */
+  background-repeat: no-repeat;
+
+  /* Добавляет лёгкий блюр */
+  filter: blur(3px);
+  clip-path: inset(0);
+
+  /* Ставит фон ниже текста и аватарки */
+  z-index: 0;
+}
+
+/* Затемнение поверх фоновой картинки */
+.hero__overlay {
+  /* Ставит затемнение поверх всего hero */
+  position: absolute;
+
+  /* Растягивает слой на весь hero */
+  inset: 0;
+
+  /* Чёрный полупрозрачный слой */
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1;
+}
+
+/* Контент внутри hero */
+.hero__content {
+  /* Нужно, чтобы текст и аватарка были выше затемнения */
+  position: relative;
+
+  /* Поднимает контент выше overlay */
+  z-index: 6;
+
+  /* Высота равна высоте hero */
+  height: 100%;
+
+  /* Отступ сверху для заголовка */
+  padding-top: 32px;
+}
+
+/* Аватарка сервера */
+.server-avatar {
+  /* Ставит аватарку поверх других элементов */
+  position: absolute;
+
+  /* Прижимает аватарку к нижней границе hero */
+  bottom: -85px;
+
+  /* Ставит аватарку слева внутри контейнера */
+  left: 50%;
+  transform: translateX(-50%);
+
+  /* Ширина аватарки */
+  width: 170px;
+
+  /* Высота аватарки */
+  height: 170px;
+
+  /* Делает аватарку круглой */
+  border-radius: 50%;
+
+  /* Обрезает картинку внутри круга */
+  object-fit: cover;
+
+  /* Обводка вокруг аватарки */
+  border: 5px solid #090a0f;
+
+  /* Лёгкая тень */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+
+/* Основная часть сайта */
+.main {
+  /* Отступ сверху, чтобы контент не залезал под аватарку */
+  padding-top: 90px;
+
+  /* Остальные отступы */
+  padding-bottom: 40px;
+}
+.hero-title {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+
+  display: flex;
+  align-items: center;  
+
+  z-index: 10;
+}
+
+.hero-title-icon {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+  flex-shrink: 0;
+
+  filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.55));
+}
+
+.hero-title h1 {
+  margin: 0;
+
+  color: white;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+
+  line-height: 1;
+  letter-spacing: 0;
+  word-spacing: -4px;
+
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.6);
+}
+@media (max-width: 768px) {
+  .hero-title {
+    top: 18px;
+    left: 18px;
+    gap: 8px;
+  }
+
+  .hero-title-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .hero-title h1 {
+    font-size: 22px;
+    word-spacing: -3px;
+  }
+}   
+.menu-bar {
+  height: var(--menu-bar-height);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  padding-left: 24px;
+
+  background: #090a0f;
+
+  position: relative;
+  z-index: 5;
+}
+
+.menu-button {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-button span {
+  width: 26px;
+  height: 3px;
+
+  background: white;
+  border-radius: 999px;
+
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Выдвижное меню */
+.side-menu {
+  position: absolute;
+
+  top: calc(var(--hero-height) + var(--menu-bar-height));
+  bottom: 0;
+  left: 0;
+
+  width: var(--side-menu-width);
+
+  background: #0d0f16;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+
+  transform: translateX(-100%);
+  transition: transform 0.25s ease;
+
+  z-index: 100;
+
+  padding: 20px 18px;
+
+  box-shadow: 10px 0 30px rgba(0, 0, 0, 0.35);
+}
+
+/* Ссылки внутри меню */
+.side-menu__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.side-menu__nav a {
+  color: white;
+  text-decoration: none;
+
+  font-size: 16px;
+  font-weight: 700;
+
+  padding: 12px 14px;
+
+  border-radius: 10px;
+
+  background: rgba(255, 255, 255, 0.04);
+
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.side-menu__nav a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateX(4px);
+}
+
+/* Плавное движение основного экрана */
+.hero,
+.menu-bar,
+.main,
+.footer {
+  transition: transform 0.25s ease;
+}
+
+body.menu-open .main,
+body.menu-open .footer {
+  transform: translateX(var(--side-menu-width));
+}
+
+body.menu-open .side-menu {
+  transform: translateX(0);
+}
+body {
+  position: relative;
+  overflow-x: hidden;
+  min-height: 100vh;
 }
