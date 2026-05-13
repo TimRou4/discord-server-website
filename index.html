@@ -19,28 +19,48 @@
 </head>
 
 <body>
-  <!-- Верхняя часть сайта -->
-  <header class="header">
+<!-- Верхний блок сайта с фоновым изображением -->
+<section class="hero">
 
-    <!-- Контейнер ограничивает ширину контента -->
-    <div class="container">
+  <div class="hero__overlay"></div>
 
-      <!-- Главный заголовок сайта -->
-      <h1>Hello.</h1>
+  <div class="hero-title">
+    <img src="Pics/NGNF_Icon.png" alt="NGNF icon" class="hero-title-icon">
+    <h1>No Games No Fun</h1>
+  </div>
 
-    </div>
-  </header>
+  <div class="container hero__content">
+    <img class="server-avatar" src="Pics/NGNF_Avatar.png" alt="Server avatar">
+  </div>
 
-  <!-- Основная часть сайта -->
-  <main class="main">
+</section>
 
-    <!-- Контейнер для будущего контента -->
-    <div class="container">
+<div class="menu-bar">
+  <button class="menu-button" type="button" aria-label="Open menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</div>
 
-      <!-- Здесь ты будешь добавлять свои блоки, карточки, текст, кнопки и т.д. -->
+<aside class="side-menu">
+  <nav class="side-menu__nav">
+    <a href="#welcome">Главная</a>
+    <a href="#roles">Роли</a>
+    <a href="#ranks">Ранги</a>
+    <a href="#rules">Правила</a>
+    <a href="#about">О сервере</a>
+  </nav>
+</aside>
 
-    </div>
-  </main>
+<!-- Основная часть сайта после верхнего фона -->
+<main class="main">
+  <div class="container">
+
+    <!-- Здесь потом будет контент сайта -->
+
+  </div>
+</main>
 
   <!-- Нижняя часть сайта -->
   <footer class="footer">
