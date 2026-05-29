@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap');
 
 :root {
@@ -21,191 +20,121 @@ html {
 
 /* Главные настройки всей страницы */
 body {
-  /* Минимальная высота страницы равна высоте экрана */
   min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
 
-  /* Основной шрифт сайта */
   font-family: Arial, sans-serif;
-
-  /* Цвет текста */
   color: #ffffff;
 
-  /* Тёмный фон с лёгким свечением сверху */
   background:
     radial-gradient(circle at top, rgba(90, 90, 150, 0.25), transparent 35%),
     linear-gradient(180deg, #0f1117 0%, #090a0f 100%);
 }
 
-/* Общий контейнер для ограничения ширины */
+/* Общий контейнер */
 .container {
-  /* Максимальная ширина 1200px, но на маленьких экранах 90% */
-  width: min(1200px, 90%);
-
-  /* Ставит контейнер по центру */
+  width: min(1500px, 92%);
   margin: 0 auto;
 }
 
 /* Верхняя часть сайта */
 .header {
-  /* Отступ сверху и снизу */
   padding: 24px 0;
 }
 
-/* Заголовок внутри header */
 .header h1 {
-  /* Размер текста */
   font-size: 32px;
-
-  /* Толщина текста */
   font-weight: 700;
 }
 
 /* Основная часть сайта */
 .main {
-  /* Минимальная высота основной части */
   min-height: calc(100vh - 160px);
 
-  /* Внутренние отступы сверху и снизу */
-  padding: 40px 0;
+  padding-top: 55px;
+  padding-bottom: 40px;
 }
 
 /* Нижняя часть сайта */
 .footer {
-  /* Отступ сверху и снизу */
   padding: 24px 0;
-
-  /* Серый цвет текста */
   color: #888888;
-}
-
-/* Адаптация под телефон */
-@media (max-width: 600px) {
-  /* Уменьшает заголовок на телефоне */
-  .header h1 {
-    font-size: 24px;
-  }
-
-  /* Уменьшает отступы основной части на телефоне */
-  .main {
-    padding: 24px 0;
-  }
 }
 
 /* Верхний блок с фоном */
 .hero {
-  /* Нужно для позиционирования фона, текста и аватарки */
   position: relative;
-
-  /* Высота верхнего фонового блока */
   height: var(--hero-height);
-
-  /* Позволяет аватарке выходить вниз за границу hero */
   overflow: visible;
 }
 
 /* Сам фоновый слой с картинкой */
 .hero::before {
-  /* Создаёт отдельный слой */
   content: "";
 
-  /* Растягивает фон на весь hero */
   position: absolute;
   inset: 0;
 
-  /* Фоновая картинка */
   background-image: url("Pics/NGNF_Background.png");
-
-  /* Картинка заполняет весь блок */
   background-size: cover;
-
-  /* Центрирует картинку */
   background-position: center;
-
-  /* Не повторяет картинку */
   background-repeat: no-repeat;
 
-  /* Добавляет лёгкий блюр */
   filter: blur(3px);
   clip-path: inset(0);
 
-  /* Ставит фон ниже текста и аватарки */
   z-index: 0;
 }
 
 /* Затемнение поверх фоновой картинки */
 .hero__overlay {
-  /* Ставит затемнение поверх всего hero */
   position: absolute;
-
-  /* Растягивает слой на весь hero */
   inset: 0;
 
-  /* Чёрный полупрозрачный слой */
   background: rgba(0, 0, 0, 0.45);
+
   z-index: 1;
 }
 
 /* Контент внутри hero */
 .hero__content {
-  /* Нужно, чтобы текст и аватарка были выше затемнения */
   position: relative;
-
-  /* Поднимает контент выше overlay */
   z-index: 6;
 
-  /* Высота равна высоте hero */
   height: 100%;
 
-  /* Отступ сверху для заголовка */
   padding-top: 32px;
 }
 
 /* Аватарка сервера */
 .server-avatar {
-  /* Ставит аватарку поверх других элементов */
   position: absolute;
 
-  /* Прижимает аватарку к нижней границе hero */
   bottom: -85px;
-
-  /* Ставит аватарку слева внутри контейнера */
   left: 50%;
   transform: translateX(-50%);
 
-  /* Ширина аватарки */
   width: 170px;
-
-  /* Высота аватарки */
   height: 170px;
 
-  /* Делает аватарку круглой */
   border-radius: 50%;
-
-  /* Обрезает картинку внутри круга */
   object-fit: cover;
 
-  /* Обводка вокруг аватарки */
   border: 5px solid #090a0f;
 
-  /* Лёгкая тень */
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
 }
 
-/* Основная часть сайта */
-.main {
-  /* Отступ сверху, чтобы контент не залезал под аватарку */
-  padding-top: 90px;
-
-  /* Остальные отступы */
-  padding-bottom: 40px;
-}
+/* Маленький заголовок сверху слева */
 .hero-title {
   position: absolute;
+
   top: 6px;
   left: 6px;
 
   display: flex;
-  align-items: center;  
+  align-items: center;
 
   z-index: 10;
 }
@@ -213,6 +142,7 @@ body {
 .hero-title-icon {
   width: 34px;
   height: 34px;
+
   object-fit: contain;
   flex-shrink: 0;
 
@@ -233,25 +163,11 @@ body {
 
   text-shadow: 0 3px 6px rgba(0, 0, 0, 0.6);
 }
-@media (max-width: 768px) {
-  .hero-title {
-    top: 18px;
-    left: 18px;
-    gap: 8px;
-  }
 
-  .hero-title-icon {
-    width: 32px;
-    height: 32px;
-  }
-
-  .hero-title h1 {
-    font-size: 22px;
-    word-spacing: -3px;
-  }
-}   
+/* Верхняя панель меню */
 .menu-bar {
   height: var(--menu-bar-height);
+
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -287,6 +203,16 @@ body {
   border-radius: 999px;
 
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+#current-tab {
+  margin-left: 14px;
+
+  color: white;
+  font-size: 17px;
+  font-weight: 700;
+
+  letter-spacing: 0.2px;
 }
 
 /* Выдвижное меню */
@@ -332,7 +258,9 @@ body {
 
   background: rgba(255, 255, 255, 0.04);
 
-  transition: background 0.2s ease, transform 0.2s ease;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
 }
 
 .side-menu__nav a:hover {
@@ -350,14 +278,631 @@ body {
 
 body.menu-open .main,
 body.menu-open .footer {
-  transform: translateX(var(--side-menu-width));
+  transform: none;
 }
 
 body.menu-open .side-menu {
   transform: translateX(0);
 }
-body {
-  position: relative;
-  overflow-x: hidden;
-  min-height: 100vh;
+
+/* Главная страница */
+.home-page {
+  width: 100%;
+}
+
+/* Общий блок главной страницы */
+.welcome-layout {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns:
+    clamp(300px, 24vw, 360px)
+    minmax(0, 1fr)
+    clamp(300px, 24vw, 360px);
+
+  gap: 40px;
+
+  align-items: start;
+}
+
+/* Центральный блок с названием, описанием и кнопкой */
+.server-intro {
+  grid-column: 2;
+
+  width: 100%;
+  max-width: 720px;
+
+  justify-self: center;
+
+  text-align: center;
+
+  margin-bottom: 0;
+}
+
+.server-intro h2 {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 36px;
+  font-weight: 800;
+  color: #ffffff;
+
+  padding-bottom: 10px;
+
+  text-shadow: 0 4px 14px rgba(0, 0, 0, 0.55);
+}
+
+.server-intro p {
+  font-size: 17px;
+  line-height: 1.6;
+  color: #bfc3d4;
+}
+
+/* Блок кнопки */
+.join-box {
+  display: flex;
+  justify-content: center;
+
+  width: 100%;
+
+  margin-top: 22px;
+}
+
+/* Discord-кнопка */
+.discord-join-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  min-width: 260px;
+  height: 62px;
+
+  background: #5865f2;
+  color: #ffffff;
+
+  text-decoration: none;
+
+  font-size: 20px;
+  font-weight: 800;
+
+  border-radius: 16px;
+
+  box-shadow: 0 14px 34px rgba(88, 101, 242, 0.38);
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.join-discord-icon {
+  width: 26px;
+  height: 26px;
+
+  object-fit: contain;
+}
+
+/* Правая колонка с карточками */
+.home-info-grid {
+  grid-column: 3;
+
+  width: min(300px, 100%);
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  justify-self: end;
+
+  margin-top: -35px;
+}
+
+/* Общий стиль карточек */
+.home-card {
+  width: 100%;
+
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.03));
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+
+  padding: 24px;
+
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.28);
+}
+
+.home-card h3 {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+
+  margin-bottom: 18px;
+}
+
+/* Список игр */
+.games-list {
+  list-style: none;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.games-list li {
+  padding: 12px 14px;
+
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+
+  color: #e8e9f2;
+  font-weight: 700;
+}
+
+/* Список владельцев */
+.owners-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.owner-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  padding: 14px;
+
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+}
+
+.owner-role {
+  color: #9ea4bd;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.owner-name {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.owner-tg {
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.owner-contact {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.discord-icon {
+  width: 20px;
+  height: 20px;
+
+  object-fit: contain;
+}
+
+.telegram-icon {
+  width: 18px;
+  height: 18px;
+
+  object-fit: contain;
+}
+
+/* Адаптация для средних экранов */
+@media (max-width: 1100px) {
+  .container {
+    width: min(300px, 100%);
+  }
+
+  .welcome-layout {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .server-intro {
+    grid-column: 1;
+    justify-self: center;
+  }
+
+  .home-info-grid {
+    grid-column: 1;
+
+    width: min(420px, 100%);
+
+    justify-self: center;
+  }
+}
+
+/* Адаптация под телефон */
+@media (max-width: 768px) {
+  .hero-title {
+    top: 18px;
+    left: 18px;
+    gap: 8px;
+  }
+
+  .hero-title-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .hero-title h1 {
+    font-size: 22px;
+    word-spacing: -3px;
+  }
+
+  .server-intro h2 {
+    font-size: 30px;
+  }
+
+  .server-intro p {
+    font-size: 15px;
+  }
+
+  .home-card {
+    padding: 20px;
+  }
+
+  .discord-join-button {
+    width: 100%;
+  }
+}
+
+/* Адаптация под маленький телефон */
+@media (max-width: 600px) {
+  .header h1 {
+    font-size: 24px;
+  }
+
+  .main {
+    padding-top: 45px;
+    padding-bottom: 24px;
+  }
+
+  .container {
+    width: 90%;
+  }
+
+  .server-avatar {
+    width: 150px;
+    height: 150px;
+    bottom: -75px;
+  }
+
+  .menu-bar {
+    padding-left: 16px;
+  }
+
+  #current-tab {
+    font-size: 15px;
+  }
+
+  .home-info-grid {
+    width: 100%;
+  }
+}
+.page {
+  display: none;
+}
+
+.page.is-active {
+  display: block;
+}
+
+.content-page {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.content-page h2 {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 36px;
+  font-weight: 800;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.content-card {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.03));
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+
+  padding: 26px;
+
+  color: #e8e9f2;
+  font-size: 17px;
+  line-height: 1.6;
+
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.28);
+}
+
+.content-card ul {
+  padding-left: 22px;
+}
+.roles-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.role-card {
+  padding: 18px 20px;
+
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.03));
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 5px solid var(--role-color);
+  border-radius: 16px;
+
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.28);
+}
+
+.role-card h3 {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+
+  color: var(--role-color);
+
+  margin-bottom: 8px;
+}
+
+.role-card p {
+  color: #d6d9e8;
+  font-size: 16px;
+  line-height: 1.5;
+}
+.role-extra {
+  margin-top: 10px;
+  padding-top: 10px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+  color: #cfd3e6;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.role-extra span {
+  color: var(--role-color);
+  font-weight: 800;
+}
+
+.role-extra code {
+  padding: 3px 7px;
+
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  font-weight: 700;
+}
+.rules-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.rule-item {
+  padding: 18px 20px;
+
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.03));
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 4px solid #5865f2;
+  border-radius: 14px;
+
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.24);
+}
+
+.rule-item h3 {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+
+  color: #ffffff;
+
+  margin-bottom: 7px;
+}
+
+.rule-item p {
+  color: #d6d9e8;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.rule-note {
+  border-left-color: #efce34;
+}
+
+.rule-note h3 {
+  color: #efce34;
+}
+.rank-formula-card {
+  margin-bottom: 18px;
+  padding: 22px 24px;
+
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.03));
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 5px solid #5865f2;
+  border-radius: 16px;
+
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.28);
+}
+
+.rank-formula-card h3 {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.rank-formula-card p {
+  color: #d6d9e8;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.rank-formula-card code {
+  padding: 3px 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  color: #ffffff;
+  font-weight: 800;
+}
+
+.ranks-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.rank-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+
+  padding: 15px 17px;
+
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 5px solid var(--rank-color);
+  border-radius: 14px;
+
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+}
+
+.rank-card span {
+  color: var(--rank-color);
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.rank-card strong {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.rank-card--legend {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 768px) {
+  .ranks-list {
+    grid-template-columns: 1fr;
+  }
+
+  .rank-card {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 6px;
+  }
+}
+.rank-commands {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+
+  margin-top: 14px;
+  padding-top: 12px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.rank-commands p {
+  color: #d6d9e8;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.rank-commands code {
+  padding: 3px 8px;
+
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+
+  color: #ffffff;
+  font-weight: 800;
+}
+.home-guide {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+
+  margin-top: 34px;
+}
+
+.guide-card {
+  display: block;
+
+  padding: 16px 18px;
+
+  text-align: left;
+  text-decoration: none;
+
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.03));
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.guide-card:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(88, 101, 242, 0.45);
+}
+
+.guide-card h3 {
+  margin-bottom: 7px;
+
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+
+  color: #ffffff;
+}
+
+.guide-card p {
+  color: #bfc3d4;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.guide-card code {
+  padding: 2px 6px;
+
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+
+  color: #ffffff;
+  font-weight: 800;
+}
+
+@media (max-width: 768px) {
+  .home-guide {
+    grid-template-columns: 1fr;
+  }
 }
