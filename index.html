@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="menu-open">
 <!-- Верхний блок сайта с фоновым изображением -->
 <section class="hero">
 
@@ -36,28 +36,328 @@
 </section>
 
 <div class="menu-bar">
-  <button class="menu-button" type="button" aria-label="Open menu">
+<button class="menu-button" type="button" aria-label="Open menu" aria-expanded="true">
     <span></span>
     <span></span>
     <span></span>
   </button>
+  <span id="current-tab">Главная</span>
 </div>
 
 <aside class="side-menu">
   <nav class="side-menu__nav">
-    <a href="#welcome">Главная</a>
-    <a href="#roles">Роли</a>
-    <a href="#ranks">Ранги</a>
-    <a href="#rules">Правила</a>
-    <a href="#about">О сервере</a>
+    <a href="#welcome" data-page="welcome" data-title="Главная">Главная</a>
+    <a href="#roles" data-page="roles" data-title="Роли">Роли</a>
+    <a href="#ranks" data-page="ranks" data-title="Ранги">Ранги</a>
+    <a href="#rules" data-page="rules" data-title="Правила">Правила</a>
+    <a href="#about" data-page="about" data-title="О сервере">О сервере</a>
   </nav>
 </aside>
 
-<!-- Основная часть сайта после верхнего фона -->
 <main class="main">
   <div class="container">
 
-    <!-- Здесь потом будет контент сайта -->
+    <section id="welcome" class="home-page page is-active">
+
+      <div class="welcome-layout">
+
+        <div class="server-intro">
+          <h2>No Games No Fun</h2>
+
+          <p>
+            Игровое сообщество для общения, совместных игр и отдыха. Заходи, находи друзей,
+            играй с нами и становись частью No Games No Fun.
+          </p>
+
+          <div class="join-box">
+            <a href="https://discord.gg/vKCAq94w6S" class="discord-join-button" target="_blank" rel="noopener noreferrer">
+              <img src="Pics/Discord-Symbol-White.png" alt="Discord" class="join-discord-icon">
+              Присоединиться
+            </a>
+          </div>
+
+<div class="home-guide">
+  <a href="#roles" class="guide-card" data-page="roles" data-title="Роли">
+    <h3>🎭 Роли</h3>
+    <p>Система статусов и привилегий сервера. Здесь видно, какие возможности открывает каждая роль.</p>
+  </a>
+
+  <a href="#ranks" class="guide-card" data-page="ranks" data-title="Ранги">
+    <h3>🏆 Ранги</h3>
+    <p>Личный прогресс участника: опыт, уровни, активность и награды за участие в жизни сервера.</p>
+  </a>
+
+  <a href="#rules" class="guide-card" data-page="rules" data-title="Правила">
+    <h3>📜 Правила</h3>
+    <p>Короткий набор принципов, который помогает держать сервер спокойным, понятным и удобным для всех.</p>
+  </a>
+
+  <a href="#about" class="guide-card" data-page="about" data-title="О сервере">
+    <h3>💯 О сервере</h3>
+    <p>Общее представление о No Games No Fun</p>
+  </a>
+</div>
+</div>
+
+        <div class="home-info-grid">
+
+          <div class="home-card">
+            <h3>Наши игры</h3>
+
+            <ul class="games-list">
+              <li>Project Zomboid</li>
+              <li>Dead by daylight</li>
+              <li>Counter-Strike 2</li>
+              <li>Minecraft</li>
+              <li>Far Far West</li>
+            </ul>
+          </div>
+
+          <div class="home-card">
+            <h3>Наша команда</h3>
+
+            <div class="owners-list">
+
+              <div class="owner-item">
+                <span class="owner-role">Владелец</span>
+
+                <div class="owner-contact">
+                  <span class="owner-name">TimRou4 / TIR</span>
+                  <img src="Pics/discord.svg" alt="Discord" class="discord-icon">
+                </div>
+
+                <div class="owner-contact">
+                  <span class="owner-tg">@TimRou4</span>
+                  <img src="Pics/Logo.png" alt="Telegram" class="telegram-icon">
+                </div>
+              </div>
+
+              <div class="owner-item">
+                <span class="owner-role">Второй владелец</span>
+
+                <div class="owner-contact">
+                  <span class="owner-name">albedo.alucard.sam</span>
+                  <img src="Pics/discord.svg" alt="Discord" class="discord-icon">
+                </div>
+
+                <div class="owner-contact">
+                  <span class="owner-tg">@YaENDGELLaY</span>
+                  <img src="Pics/Logo.png" alt="Telegram" class="telegram-icon">
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <section id="roles" class="page content-page">
+  <h2>Роли</h2>
+
+  <div class="roles-list">
+
+    <article class="role-card" style="--role-color: #cd2727;">
+      <h3>🛩️ × Владелец</h3>
+      <p>Главные люди сервера, которые отвечают за развитие сервера, порядок и общую атмосферу.</p>
+    </article>
+
+    <article class="role-card" style="--role-color: #00e2e5;">
+      <h3>👁️ × Администратор</h3>
+      <p>Следит за сервером, помогает участникам и решает важные вопросы сервера.</p>
+    </article>
+
+    <article class="role-card" style="--role-color: #00a8d9;">
+      <h3>🛸 × Модератор</h3>
+      <p>Поддерживает порядок в чатах, контролирует правила и помогает новым участникам.</p>
+    </article>
+
+    <article class="role-card" style="--role-color: #f47fff;">
+      <h3>❯❯ Booster!</h3>
+      <p>Отдельная роль для участников, кто бустит сервер.</p>
+
+  <p class="role-extra">
+    <span>Бонусы:</span>
+    Напишите в <code>#💾команды</code> команду <code>!my-booster</code>
+  </p>
+
+    </article>
+
+    <article class="role-card" style="--role-color: #6bff86;">
+      <h3>❯❯ Premium</h3>
+      <p>Роль привилегия. Выдается за донат или за актив</p>
+
+  <p class="role-extra">
+    <span>Бонусы:</span>
+    Напишите в <code>#💾команды</code> команду <code>!my-premium</code>
+  </p>
+
+    </article>
+
+    <article class="role-card" style="--role-color: #efce34;">
+      <h3>❯❯ VIP</h3>
+      <p>Роль привилегия.Выдается за донат или за актив</p>
+
+  <p class="role-extra">
+    <span>Бонусы:</span>
+    Напишите в <code>#💾команды</code> команду <code>!my-vip</code>
+  </p>
+
+    </article>
+
+    <article class="role-card" style="--role-color: #3ca63e;">
+      <h3>❯ Участник</h3>
+      <p>Обычная роль участника сообщества No Games No Fun.</p>
+    </article>
+
+  </div>
+</section>
+
+<section id="ranks" class="page content-page">
+  <h2>Ранги</h2>
+
+<div class="rank-formula-card">
+  <h3>Система опыта</h3>
+
+  <p>
+    На сервере можно получать EXP за активность в текстовых и голосовых каналах.
+    Чем больше опыта вы набираете, тем выше становится ваш уровень.
+    При достижении нужного количества EXP выдаётся новая роль.
+  </p>
+
+  <div class="rank-commands">
+    <p><code>!rank</code> — посмотреть свой уровень в <code>#Команды</code></p>
+    <p><code>!formula</code> — узнать формулу опыта в <code>#Команды</code></p>
+  </div>
+</div>
+
+  <div class="ranks-list">
+
+    <article class="rank-card" style="--rank-color: #a86b2d;"><span>❯ Бронза I</span><strong>1 уровень</strong></article>
+    <article class="rank-card" style="--rank-color: #a86b2d;"><span>❯ Бронза II</span><strong>4 уровень</strong></article>
+    <article class="rank-card" style="--rank-color: #a86b2d;"><span>❯ Бронза III</span><strong>7 уровень</strong></article>
+    <article class="rank-card" style="--rank-color: #a86b2d;"><span>❯ Бронза IV</span><strong>10 уровень</strong></article>
+    <article class="rank-card" style="--rank-color: #a86b2d;"><span>❯ Бронза V</span><strong>14 уровень</strong></article>
+
+    <article class="rank-card" style="--rank-color: #b4b4b4;"><span>❯ Серебро I</span><strong>17 уровень</strong></article>
+    <article class="rank-card" style="--rank-color: #b4b4b4;"><span>❯ Серебро II</span><strong>20 уровень</strong></article>
+    <article class="rank-card" style="--rank-color: #b4b4b4;"><span>❯ Серебро III</span><strong>24 уровень</strong></article>
+    <article class="rank-card" style="--rank-color: #b4b4b4;"><span>❯ Серебро IV</span><strong>27 уровень</strong></article>
+    <article class="rank-card" style="--rank-color: #b4b4b4;"><span>❯ Серебро V</span><strong>30 уровень</strong></article>
+
+    <article class="rank-card" style="--rank-color: #d4b92f;"><span>❯ Золото I</span><strong>34 уровень</strong></article>
+    <article class="rank-card" style="--rank-color: #d4b92f;"><span>❯ Золото II</span><strong>37 уровень</strong></article>
+    <article class="rank-card" style="--rank-color: #d4b92f;"><span>❯ Золото III</span><strong>40 уровень</strong></article>
+    <article class="rank-card" style="--rank-color: #d4b92f;"><span>❯ Золото IV</span><strong>44 уровень</strong></article>
+    <article class="rank-card" style="--rank-color: #d4b92f;"><span>❯ Золото V</span><strong>47 уровень</strong></article>
+
+    <article class="rank-card" style="--rank-color: #3fa2ab;"><span>❯ Платина I</span><strong>50 уровень</strong></article>
+    <article class="rank-card" style="--rank-color: #3fa2ab;"><span>❯ Платина II</span><strong>54 уровень</strong></article>
+    <article class="rank-card" style="--rank-color: #3fa2ab;"><span>❯ Платина III</span><strong>57 уровень</strong></article>
+    <article class="rank-card" style="--rank-color: #3fa2ab;"><span>❯ Платина IV</span><strong>60 уровень</strong></article>
+    <article class="rank-card" style="--rank-color: #3fa2ab;"><span>❯ Платина V</span><strong>64 уровень</strong></article>
+
+    <article class="rank-card" style="--rank-color: #25c059;"><span>❯ Изумруд I</span><strong>67 уровень</strong></article>
+    <article class="rank-card" style="--rank-color: #25c059;"><span>❯ Изумруд II</span><strong>70 уровень</strong></article>
+    <article class="rank-card" style="--rank-color: #25c059;"><span>❯ Изумруд III</span><strong>74 уровень</strong></article>
+    <article class="rank-card" style="--rank-color: #25c059;"><span>❯ Изумруд IV</span><strong>77 уровень</strong></article>
+    <article class="rank-card" style="--rank-color: #25c059;"><span>❯ Изумруд V</span><strong>80 уровень</strong></article>
+
+    <article class="rank-card" style="--rank-color: #d01a3e;"><span>❯ Рубин I</span><strong>84 уровень</strong></article>
+    <article class="rank-card" style="--rank-color: #d01a3e;"><span>❯ Рубин II</span><strong>87 уровень</strong></article>
+    <article class="rank-card" style="--rank-color: #d01a3e;"><span>❯ Рубин III</span><strong>90 уровень</strong></article>
+    <article class="rank-card" style="--rank-color: #d01a3e;"><span>❯ Рубин IV</span><strong>94 уровень</strong></article>
+    <article class="rank-card" style="--rank-color: #d01a3e;"><span>❯ Рубин V</span><strong>100 уровень</strong></article>
+
+    <article class="rank-card rank-card--legend" style="--rank-color: #ffed00;">
+      <span>❯❯ Титул: Легенда</span>
+      <strong>110 уровень</strong>
+    </article>
+
+  </div>
+</section>
+
+<section id="rules" class="page content-page">
+  <h2>Правила</h2>
+
+  <div class="rules-list">
+
+    <article class="rule-item">
+      <h3>Пункт 1.1</h3>
+      <p>Запрещен спам и флуд: повтор сообщений, символов, картинок, бессмысленные сообщения и засорение чата.</p>
+    </article>
+
+    <article class="rule-item">
+      <h3>Пункт 1.2</h3>
+      <p>Запрещен оффтоп в тематических каналах.</p>
+    </article>
+
+    <article class="rule-item">
+      <h3>Пункт 1.3</h3>
+      <p>Запрещено беспричинное массовое упоминание участников и ролей.</p>
+    </article>
+
+    <article class="rule-item">
+      <h3>Пункт 1.4</h3>
+      <p>Запрещены провокации, оскорбления, токсичность и неадекватное поведение.</p>
+    </article>
+
+    <article class="rule-item">
+      <h3>Пункт 1.5</h3>
+      <p>Запрещена дискриминация, травля и предвзятое отношение к участникам.</p>
+    </article>
+
+    <article class="rule-item">
+      <h3>Пункт 1.6</h3>
+      <p>Запрещено публиковать NSFW, шокирующий, незаконный или запрещенный правилами Discord контент.</p>
+    </article>
+
+    <article class="rule-item">
+      <h3>Пункт 1.7</h3>
+      <p>Запрещено распространять личную информацию участников без их согласия.</p>
+    </article>
+
+    <article class="rule-item">
+      <h3>Пункт 1.8</h3>
+      <p>Запрещены оскорбительные, провокационные никнеймы, аватарки и статусы, а также копирование других участников.</p>
+    </article>
+
+    <article class="rule-item">
+      <h3>Пункт 1.9</h3>
+      <p>Запрещена реклама сторонних серверов, товаров, услуг и подозрительных сайтов.</p>
+    </article>
+
+    <article class="rule-item">
+      <h3>Пункт 1.10</h3>
+      <p>Запрещено мешать общению в голосовых каналах: крики, шумы, саундпады, перебив и троллинг.</p>
+    </article>
+
+    <article class="rule-item">
+      <h3>Пункт 1.11</h3>
+      <p>Запрещен обход ограничений и наказаний любым способом, включая использование другого аккаунта.</p>
+    </article>
+
+    <article class="rule-item rule-note">
+      <h3>Примечание</h3>
+      <p>Персонал может принять меры в зависимости от тяжести нарушения.</p>
+    </article>
+
+  </div>
+</section>
+
+<section id="about" class="page content-page">
+  <h2>О сервере</h2>
+
+  <div class="content-card">
+    <p>
+      No Games No Fun — это игровой сервер для общения, совместных игр,
+      поиска друзей и отдыха.
+    </p>
+  </div>
+</section>
 
   </div>
 </main>
