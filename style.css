@@ -906,3 +906,305 @@ body.menu-open .side-menu {
     grid-template-columns: 1fr;
   }
 }
+/* ============================= */
+/* Нормальный адаптив */
+/* ============================= */
+
+/* Планшеты и небольшие ноутбуки */
+@media (max-width: 1100px) {
+  .container {
+    width: min(920px, 92%);
+  }
+
+  .main {
+    padding-top: 60px;
+  }
+
+  .welcome-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .server-intro {
+    grid-column: 1;
+    max-width: 720px;
+    justify-self: center;
+  }
+
+  .home-info-grid {
+    grid-column: 1;
+    width: min(720px, 100%);
+    justify-self: center;
+    margin-top: 0;
+  }
+
+  .home-guide {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Телефон */
+@media (max-width: 768px) {
+  :root {
+    --hero-height: 210px;
+    --menu-bar-height: 56px;
+    --side-menu-width: min(82vw, 300px);
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+
+  .container {
+    width: 92%;
+  }
+
+  .hero {
+    height: var(--hero-height);
+  }
+
+  .hero-title {
+    top: 12px;
+    left: 12px;
+    max-width: calc(100% - 24px);
+    gap: 7px;
+  }
+
+  .hero-title-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .hero-title h1 {
+    font-size: 20px;
+    word-spacing: -3px;
+    white-space: nowrap;
+  }
+
+  .server-avatar {
+    width: 130px;
+    height: 130px;
+    bottom: -65px;
+    border-width: 4px;
+  }
+
+  .menu-bar {
+    height: var(--menu-bar-height);
+    padding-left: 12px;
+    padding-right: 12px;
+    position: relative;
+    z-index: 120;
+  }
+
+  .menu-button {
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+  }
+
+  #current-tab {
+    margin-left: 10px;
+    font-size: 15px;
+  }
+
+  .side-menu {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+
+    width: var(--side-menu-width);
+    height: 100vh;
+
+    padding: 86px 16px 20px;
+
+    transform: translateX(-105%);
+    z-index: 110;
+
+    overflow-y: auto;
+  }
+
+  body.menu-open .side-menu {
+    transform: translateX(0);
+  }
+
+  .main {
+    padding-top: 88px;
+    padding-bottom: 28px;
+  }
+
+  .server-intro h2 {
+    font-size: 28px;
+    line-height: 1.15;
+  }
+
+  .server-intro p {
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .discord-join-button {
+    width: 100%;
+    min-width: 0;
+    height: 56px;
+    font-size: 18px;
+    border-radius: 14px;
+  }
+
+  .join-discord-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .home-guide {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 28px;
+  }
+
+  .guide-card {
+    padding: 15px 16px;
+  }
+
+  .guide-card h3 {
+    font-size: 17px;
+  }
+
+  .guide-card p {
+    font-size: 14px;
+  }
+
+  .home-info-grid {
+    width: 100%;
+    gap: 16px;
+  }
+
+  .home-card {
+    padding: 18px;
+    border-radius: 16px;
+  }
+
+  .home-card h3 {
+    font-size: 20px;
+    margin-bottom: 14px;
+  }
+
+  .games-list li {
+    padding: 11px 13px;
+    font-size: 14px;
+  }
+
+  .owner-item {
+    padding: 13px;
+  }
+
+  .owner-name,
+  .owner-tg {
+    font-size: 14px;
+    overflow-wrap: anywhere;
+  }
+
+  .content-page {
+    max-width: 100%;
+  }
+
+  .content-page h2 {
+    font-size: 28px;
+    margin-bottom: 18px;
+  }
+
+  .content-card,
+  .role-card,
+  .rule-item,
+  .rank-formula-card {
+    padding: 17px;
+    border-radius: 15px;
+  }
+
+  .role-card h3,
+  .rank-formula-card h3 {
+    font-size: 19px;
+  }
+
+  .role-card p,
+  .rule-item p,
+  .rank-formula-card p {
+    font-size: 15px;
+  }
+
+  .ranks-list {
+    grid-template-columns: 1fr;
+  }
+
+  .rank-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    padding: 14px 15px;
+  }
+
+  .rank-card span {
+    font-size: 16px;
+  }
+
+  .rank-card strong {
+    font-size: 14px;
+  }
+}
+
+/* Маленькие телефоны */
+@media (max-width: 420px) {
+  :root {
+    --hero-height: 190px;
+  }
+
+  .container {
+    width: 91%;
+  }
+
+  .hero-title h1 {
+    font-size: 17px;
+  }
+
+  .hero-title-icon {
+    width: 27px;
+    height: 27px;
+  }
+
+  .server-avatar {
+    width: 112px;
+    height: 112px;
+    bottom: -56px;
+  }
+
+  .main {
+    padding-top: 76px;
+  }
+
+  .server-intro h2 {
+    font-size: 24px;
+  }
+
+  .server-intro p {
+    font-size: 14px;
+  }
+
+  .discord-join-button {
+    height: 52px;
+    font-size: 16px;
+  }
+
+  .home-card,
+  .guide-card,
+  .role-card,
+  .rule-item,
+  .rank-formula-card,
+  .content-card {
+    padding: 15px;
+  }
+
+  .side-menu__nav a {
+    font-size: 15px;
+    padding: 11px 13px;
+  }
+}
