@@ -1208,25 +1208,38 @@ body.menu-open .side-menu {
     padding: 11px 13px;
   }
 }
-/* Исправление телефона */
+/* ============================= */
+/* Жесткий фикс телефона */
+/* ============================= */
+
 @media (max-width: 768px) {
-  /* Убираем надпись справа от трех полосок */
-  #current-tab {
-    display: none;
+  /* Hero должен быть выше черной панели, чтобы аватарка не пряталась */
+  .hero {
+    position: relative;
+    z-index: 200;
+    overflow: visible;
   }
 
-  /* Делаем так, чтобы аватарка была поверх панели */
+  /* Аватарка поверх панели */
   .server-avatar {
-    z-index: 160;
+    position: absolute;
+    z-index: 250;
   }
 
-  /* Панель остается ниже аватарки */
+  /* Черная панель ниже аватарки */
   .menu-bar {
-    z-index: 120;
+    position: relative;
+    z-index: 100;
   }
 
-  /* Само выдвижное меню должно быть выше аватарки */
-  .side-menu {
-    z-index: 300;
+  /* Убираем надпись "Главная" справа от трех полосок */
+  .menu-bar #current-tab {
+    display: none !important;
+  }
+
+  /* Чтобы три полоски не прилипали странно к краю */
+  .menu-bar {
+    justify-content: flex-start;
+    padding-left: 28px;
   }
 }
