@@ -45,8 +45,15 @@ pageLinks.forEach((link) => {
 
     currentTab.textContent = tabTitle;
 
-    document.body.classList.remove('menu-open');
-    menuButton.setAttribute('aria-expanded', 'false');
+const isPhone = window.matchMedia('(max-width: 768px)').matches;
+
+if (isPhone) {
+  document.body.classList.remove('menu-open');
+  menuButton.setAttribute('aria-expanded', 'false');
+} else {
+  document.body.classList.add('menu-open');
+  menuButton.setAttribute('aria-expanded', 'true');
+}
 
     window.scrollTo({
       top: 0,
