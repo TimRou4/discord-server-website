@@ -5,26 +5,66 @@ const pageLinks = document.querySelectorAll('[data-page]');
 const currentTab = document.querySelector('#current-tab');
 const pages = document.querySelectorAll('.page');
 
-function setMenuByScreenSize() {
-  const isPhone = window.matchMedia('(max-width: 768px)').matches;
+/* ========================================= */
+/* Открытие страницы */
+/* ========================================= */
 
-  if (isPhone) {
-    document.body.classList.remove('menu-open');
-    menuButton.setAttribute('aria-expanded', 'false');
-  } else {
-    document.body.classList.add('menu-open');
-    menuButton.setAttribute('aria-expanded', 'true');
+function openPage(pageId, tabTitle) {
+  pages.forEach((page) => {
+    page.classList.remove('is-active');
+  });
+
+  const activePage = document.querySelector(`#${pageId}`);
+
+  if (activePage) {
+    activePage.classList.add('is-active');
+  }
+
+  if (tabTitle) {
+    currentTab.textContent = tabTitle;
   }
 }
 
-setMenuByScreenSize();
+
+/* ========================================= */
+/* Восстановление последней страницы */
+/* ========================================= */
+
+const savedPage = localStorage.getItem('ngnf-active-page');
+const savedTitle = localStorage.getItem('ngnf-active-title');
+
+if (savedPage && document.querySelector(`#${savedPage}`)) {
+  openPage(savedPage, savedTitle);
+}
+
+
+/* ========================================= */
+/* Меню при загрузке всегда закрыто */
+/* ========================================= */
+
+document.body.classList.remove('menu-open');
+menuButton.setAttribute('aria-expanded', 'false');
+
+
+/* ========================================= */
+/* Кнопка открытия меню */
+/* ========================================= */
 
 menuButton.addEventListener('click', () => {
   document.body.classList.toggle('menu-open');
 
   const isOpen = document.body.classList.contains('menu-open');
-  menuButton.setAttribute('aria-expanded', isOpen);
+
+  menuButton.setAttribute(
+    'aria-expanded',
+    isOpen ? 'true' : 'false'
+  );
 });
+
+
+/* ========================================= */
+/* Переключение страниц */
+/* ========================================= */
 
 pageLinks.forEach((link) => {
   link.addEventListener('click', (event) => {
@@ -33,34 +73,29 @@ pageLinks.forEach((link) => {
     const pageId = link.dataset.page;
     const tabTitle = link.dataset.title;
 
-    pages.forEach((page) => {
-      page.classList.remove('is-active');
-    });
+    /* Открываем нужную страницу */
+    openPage(pageId, tabTitle);
 
-    const activePage = document.querySelector(`#${pageId}`);
+    /* Запоминаем страницу */
+    localStorage.setItem('ngnf-active-page', pageId);
+    localStorage.setItem('ngnf-active-title', tabTitle);
 
-    if (activePage) {
-      activePage.classList.add('is-active');
-    }
+    /* После выбора страницы закрываем меню */
+    document.body.classList.remove('menu-open');
+    menuButton.setAttribute('aria-expanded', 'false');
 
-    currentTab.textContent = tabTitle;
-
-const isPhone = window.matchMedia('(max-width: 768px)').matches;
-
-if (isPhone) {
-  document.body.classList.remove('menu-open');
-  menuButton.setAttribute('aria-expanded', 'false');
-} else {
-  document.body.classList.add('menu-open');
-  menuButton.setAttribute('aria-expanded', 'true');
-}
-
+    /* Возвращаемся наверх страницы */
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
     });
   });
 });
+
+
+/* ========================================= */
+/* Закрытие меню через Escape */
+/* ========================================= */
 
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape') {
