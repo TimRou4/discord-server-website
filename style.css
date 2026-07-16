@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap');
 
 :root {
-  --hero-height: 260px;
+  --hero-height: 220px;
   --menu-bar-height: 56px;
   --side-menu-width: 230px;
 }
@@ -276,13 +276,26 @@ body {
   transition: transform 0.25s ease;
 }
 
-body.menu-open .main,
-body.menu-open .footer {
-  transform: none;
-}
-
 body.menu-open .side-menu {
   transform: translateX(0);
+}
+
+@media (min-width: 769px) {
+  .main,
+  .footer {
+    width: 100%;
+    margin-left: 0;
+
+    transition:
+      margin-left 0.25s ease,
+      width 0.25s ease;
+  }
+
+  body.menu-open .main,
+  body.menu-open .footer {
+    width: calc(100% - var(--side-menu-width));
+    margin-left: var(--side-menu-width);
+  }
 }
 
 /* Главная страница */
@@ -310,7 +323,7 @@ body.menu-open .side-menu {
   grid-column: 2;
 
   width: 100%;
-  max-width: 720px;
+  max-width: 920px;
 
   justify-self: center;
 
@@ -841,10 +854,12 @@ body.menu-open .side-menu {
   color: #ffffff;
   font-weight: 800;
 }
+
 .home-guide {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(5, 200px);
+  justify-content: center;
+  gap: 14px;
 
   margin-top: 34px;
 }
@@ -944,5 +959,807 @@ body.menu-open .side-menu {
 @media (max-width: 1100px) {
   .home-info-grid {
     margin-top: 24px !important;
+  }
+}
+.games-under-guide {
+  margin-top: 24px;
+  text-align: center;
+}
+
+.games-under-guide h3 {
+  margin-bottom: 14px;
+
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+
+  color: #ffffff;
+}
+
+.games-buttons {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+}
+
+.game-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 58px;
+  padding: 14px 16px;
+
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 800;
+
+  text-align: center;
+}
+@media (max-width: 768px) {
+  .games-buttons {
+    grid-template-columns: 1fr;
+  }
+}
+.games-buttons {
+  display: grid;
+  grid-template-columns: repeat(5, 210px);
+  justify-content: center;
+  gap: 18px;
+}
+
+.game-button {
+  min-height: 115px;
+  padding: 24px 26px;
+
+  font-size: 19px;
+  font-weight: 800;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+}
+.team-under-guide {
+  width: 100%;
+  margin-top: 34px;
+
+  text-align: center;
+}
+
+.team-under-guide h3 {
+  margin-bottom: 18px;
+
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 26px;
+  font-weight: 800;
+
+  color: #ffffff;
+}
+
+.team-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 360px);
+  justify-content: center;
+  gap: 18px;
+}
+
+.team-button {
+  min-height: 130px;
+  padding: 24px 26px;
+
+  text-align: left;
+}
+
+.team-button .owner-role {
+  display: block;
+  margin-bottom: 10px;
+
+  color: #9ea4bd;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.team-button .owner-name {
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.team-button .owner-tg {
+  font-size: 16px;
+  font-weight: 800;
+}
+@media (max-width: 768px) {
+  .team-buttons {
+    grid-template-columns: 1fr;
+  }
+
+  .team-button {
+    min-height: auto;
+  }
+}
+.game-button {
+  position: relative;
+
+  min-height: 190px;
+  padding: 0;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #ffffff;
+  text-align: center;
+}
+
+.game-image {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  border-radius: 16px;
+}
+
+.game-button::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 1;
+}
+
+.game-button span {
+  position: relative;
+  z-index: 2;
+
+  padding: 0 14px;
+
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.15;
+
+  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.8);
+}
+.why-join {
+  width: 100%;
+  margin-top: 42px;
+
+  text-align: center;
+}
+
+.why-join h3 {
+  margin-bottom: 20px;
+
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+
+  color: #ffffff;
+}
+
+.why-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 300px);
+  justify-content: center;
+  gap: 18px;
+}
+
+.why-card {
+  min-height: 150px;
+  padding: 24px 22px;
+
+  text-align: left;
+}
+
+.why-card h4 {
+  margin-bottom: 10px;
+
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+
+  color: #ffffff;
+}
+
+.why-card p {
+  color: #bfc3d4;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.server-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 180px);
+  justify-content: center;
+  gap: 16px;
+
+  margin-top: 24px;
+}
+
+.stat-card {
+  padding: 20px 18px;
+
+  background:
+    linear-gradient(180deg, rgba(88, 101, 242, 0.18), rgba(255, 255, 255, 0.04));
+
+  border: 1px solid rgba(88, 101, 242, 0.35);
+  border-radius: 16px;
+
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+}
+
+.stat-card strong {
+  display: block;
+
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+
+  color: #ffffff;
+}
+
+.stat-card span {
+  display: block;
+  margin-top: 5px;
+
+  color: #bfc3d4;
+  font-size: 15px;
+  font-weight: 700;
+}
+@media (max-width: 900px) {
+  .why-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .server-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .server-stats {
+    grid-template-columns: 1fr;
+  }
+}
+.voice-ranks-block {
+  margin-top: 20px;
+}
+
+.voice-ranks-block h3 {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.voice-ranks-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+@media (max-width: 768px) {
+  .voice-ranks-list {
+    grid-template-columns: 1fr;
+  }
+}
+.voice-ranks-block h3 {
+  margin-bottom: 14px;
+
+  text-align: center;
+
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+
+  color: #ffffff;
+}
+/* ============================= */
+/* Страница экономики */
+/* ============================= */
+
+.economy-intro,
+.economy-section {
+  margin-bottom: 22px;
+  padding: 24px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.07),
+      rgba(255, 255, 255, 0.03)
+    );
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.28);
+}
+
+
+.economy-intro h3,
+.economy-section h3 {
+  margin-bottom: 12px;
+
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.economy-intro p,
+.economy-section-description {
+  color: #d6d9e8;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.economy-currency {
+  margin-top: 14px;
+}
+
+
+/* Команды */
+
+.economy-command-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.economy-command {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+
+  padding: 16px;
+
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 12px;
+}
+
+.economy-command code,
+.earning-card code,
+.casino-card code,
+.economy-info-commands code {
+  padding: 4px 8px;
+
+  background: rgba(255, 255, 255, 0.09);
+  border-radius: 7px;
+
+  color: #ffffff;
+  font-weight: 800;
+}
+
+.economy-command h4 {
+  margin-bottom: 5px;
+
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.economy-command p {
+  color: #c9cddd;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+
+/* Заработок */
+
+.economy-earning-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+
+  margin-top: 18px;
+}
+
+.earning-card {
+  padding: 18px;
+
+  background: rgba(255, 255, 255, 0.045);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 4px solid #e0a82e;
+  border-radius: 14px;
+}
+
+.earning-card--risk {
+  border-left-color: #e05252;
+}
+
+.earning-card h4 {
+  margin-top: 13px;
+  margin-bottom: 7px;
+
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.earning-card p {
+  color: #c9cddd;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.earning-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  margin-top: 14px;
+
+  color: #d6d9e8;
+  font-size: 14px;
+}
+
+
+/* Казино */
+
+.casino-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+
+  margin-top: 18px;
+}
+
+.casino-card {
+  padding: 18px;
+
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+}
+
+.casino-card h4 {
+  margin-bottom: 12px;
+
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.casino-card p {
+  margin-top: 12px;
+  margin-bottom: 8px;
+
+  color: #c9cddd;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.casino-card span {
+  color: #9ea4bd;
+  font-size: 13px;
+}
+
+.casino-limits {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+
+  margin-top: 18px;
+}
+
+.casino-limits div {
+  padding: 16px;
+
+  text-align: center;
+
+  background: rgba(224, 168, 46, 0.08);
+  border: 1px solid rgba(224, 168, 46, 0.25);
+  border-radius: 12px;
+}
+
+.casino-limits strong {
+  display: block;
+
+  font-size: 21px;
+  font-weight: 800;
+}
+
+.casino-limits span {
+  display: block;
+  margin-top: 5px;
+
+  color: #bfc3d4;
+  font-size: 14px;
+}
+
+.casino-warning {
+  margin-top: 16px;
+  padding: 14px 16px;
+
+  color: #e6e6e6;
+  line-height: 1.5;
+
+  background: rgba(255, 193, 7, 0.07);
+  border: 1px solid rgba(255, 193, 7, 0.22);
+  border-radius: 12px;
+}
+
+
+/* Info-команды */
+
+.economy-info-commands {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  margin-top: 16px;
+}
+
+
+/* Телефон */
+
+@media (max-width: 768px) {
+  .economy-earning-grid,
+  .casino-grid,
+  .casino-limits {
+    grid-template-columns: 1fr;
+  }
+
+  .economy-command {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .economy-intro,
+  .economy-section {
+    padding: 20px;
+  }
+}
+/* Большая монета в блоке валюты */
+
+.economy-currency {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  margin-top: 18px;
+  padding: 14px 16px;
+
+  background: rgba(224, 168, 46, 0.08);
+  border: 1px solid rgba(224, 168, 46, 0.25);
+  border-radius: 14px;
+}
+
+.economy-coin-icon {
+  width: 64px;
+  height: 64px;
+
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.economy-currency span {
+  display: block;
+
+  color: #bfc3d4;
+  font-size: 14px;
+}
+
+.economy-currency strong {
+  display: block;
+
+  margin-top: 3px;
+
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+
+/* Маленькая монета рядом с денежными значениями */
+
+.coin-inline {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  vertical-align: middle;
+  margin-left: 0;
+}
+
+
+/* Чуть более крупная монета в лимитах казино */
+
+.coin-inline--large {
+  width: 25px;
+  height: 25px;
+}
+.casino-money {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+}
+
+.casino-money .coin-inline--large {
+  margin-left: -4px;
+  transform: translateY(-2px);
+}
+.casino-info-section {
+  margin-top: 18px;
+}
+.economy-guide-title {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.economy-guide-title img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.economy-section-description + .economy-command-list {
+  margin-top: 9%;
+}
+/* ============================= */
+/* Страница "О сервере" */
+/* ============================= */
+
+.about-section {
+  margin-bottom: 22px;
+  padding: 24px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.07),
+      rgba(255, 255, 255, 0.03)
+    );
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.28);
+}
+
+.about-section h3 {
+  margin-bottom: 16px;
+
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+
+  color: #ffffff;
+}
+
+.about-section p {
+  margin-bottom: 16px;
+
+  color: #d6d9e8;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.about-section p:last-child {
+  margin-bottom: 0;
+}
+
+.about-section strong {
+  color: #ffffff;
+  font-weight: 800;
+}
+
+.about-section--final {
+  margin-bottom: 0;
+}
+
+.about-section--final p:last-child {
+  padding-top: 14px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+  font-size: 17px;
+}
+/* ============================= */
+/* Финальный адаптив для телефона */
+/* ============================= */
+
+@media (max-width: 768px) {
+
+  /* Основные контейнеры */
+  .container {
+    width: 90%;
+    max-width: 100%;
+  }
+
+  .content-page {
+    width: 100%;
+    max-width: 100%;
+  }
+
+
+  /* Главное меню */
+  .side-menu {
+    width: min(82vw, 300px);
+    overflow-y: auto;
+  }
+
+  body.menu-open .main,
+  body.menu-open .footer {
+    width: 100%;
+    margin-left: 0;
+  }
+
+
+  /* Карточки навигации */
+  .home-guide {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+
+  /* Наши игры */
+  .games-buttons {
+    grid-template-columns: 1fr;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .game-button {
+    width: 100%;
+    min-height: 150px;
+  }
+
+
+  /* Почему стоит зайти */
+  .why-cards {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+
+  /* Статистика */
+  .server-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+  }
+
+
+  /* Команда */
+  .team-buttons {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .team-button {
+    width: 100%;
+  }
+
+
+  /* Общие карточки */
+  .guide-card,
+  .economy-section,
+  .economy-intro,
+  .about-section {
+    max-width: 100%;
+  }
+}
+
+
+@media (max-width: 400px) {
+
+  .server-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .server-intro h2 {
+    font-size: 26px;
+  }
+
+  .content-page h2 {
+    font-size: 28px;
   }
 }
